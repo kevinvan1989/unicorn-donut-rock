@@ -1,3 +1,6 @@
+//TODO win or loss screen
+//TODO update after click
+
 var userCount = 0, compCount = 0;
 
 function shuffle(a) {
@@ -8,24 +11,39 @@ function shuffle(a) {
   return a;
 }
 
+//Start game
+const startBtn = document.querySelector('.btn');
+const startCover = document.querySelector('.start-screen');
+startBtn.addEventListener('click', function(e){
+  //Ask for the player his/her name and fill in playfield
+  askAndSetName();
+  startCover.classList.toggle('hide');
+})
+
+function askAndSetName(){
+  //Ask for player his/her name
+  var userInput = prompt('Please enter your name');
+  var playerName = document.querySelector('.playername');
+  
+  //Check if text field is NOT empty & 
+  if(userInput){
+    //Set first letter in CAP, the rest in lower
+    const cleanInput = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
+    playerName.textContent = cleanInput;
+  }
+}
+
+// --------------------------------------
 const weapons = document.querySelectorAll('.weapons__item');
 weapons.forEach((weapon)=>{
   weapon.addEventListener('click', checkMove);
 });
 
-const startBtn = document.querySelector('.btn');
-startBtn.addEventListener('click', function(e){
-  const startCover = document.querySelector('.start-screen');
-  console.log(startCover);
-  startCover.classList.toggle('hide');
-})
-
 function checkMove(e){
   const array1 = ['unicorn', 'donut', 'rock'];
-  //Get random number for computers choice
-  const rndmComp = Math.floor(Math.random() * 3);
-  const userAnswer = e.target.getAttribute('data-weapon');
-  const compAnswer = array1[rndmComp];
+  const rndmComp = Math.floor(Math.random() * 3); //Get random number for computers choice
+  const userAnswer = e.target.getAttribute('data-weapon'); //Get users choice
+  const compAnswer = array1[rndmComp]; //Set computers choice
 
   const result = comboCheck(userAnswer, compAnswer);
   counter(result);
@@ -39,36 +57,41 @@ function comboCheck(a, b){
     || (a == 'donut' && b == 'unicorn')
     || (a == 'rock' && b == 'donut')
   ){ //end of first if "declaration"
-    return 'win';
+    return 'You won';
   }else if(
     (a == 'unicorn' && b == 'donut') 
     || (a == 'donut' && b == 'rock')
     || (a == 'rock' && b == 'unicorn')
   ){ //end of second if "declaration"
-   return 'loss';
+   return 'You lost';
   }else{
-    return 'draw';
+    return 'It\'s a draw';
   }
 }
 
 function counter(result){
-  if(result == 'win'){
+  const userScore = document.querySelector('.userScore');
+  const compScore = document.querySelector('.computerScore');
+
+  if(result == 'You won'){
     userCount++;
-  }else if(result == 'loss'){
+    userScore.textContent = userCount;
+  }else if(result == 'You lost'){
     compCount++;
+    compScore.textContent = compCount;
   }
 
   if(userCount >= 5){
     console.log('you won');
     userCount = 0;
     compCount = 0;
+    startCover.classList.toggle('hide');
   }
 
   if(compCount >= 5){
     console.log('comp won');
     userCount = 0;
     compCount = 0;
+    startCover.classList.toggle('hide');
   }
 }
-
-console.log(compCount);
