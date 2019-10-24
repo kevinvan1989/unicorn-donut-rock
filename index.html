@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Unicorn - donut - scissor</title>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./style/screen.css">
 </head>
 
@@ -50,10 +50,14 @@
         <h3>Rock</h3>
         <ul class="explanation__rock">
           <li class="rock__item">
-            Rocks are solid, strong and hard. They can crush anything, especially donuts. So <span class="highlight"></span>rock always <span class="highlight"></span>wins from <span class="highlight"></span>donuts
+            Rocks are solid, strong and hard. They can crush anything, especially donuts. So <span
+              class="highlight"></span>rock always <span class="highlight"></span>wins from <span
+              class="highlight"></span>donuts
           </li>
           <li class="rock__item">
-            Rocks are hard but loved by some creatures. Unicorns for instance, they love to eat rocks. So <span class="highlight"></span>rock always <span class="highlight"></span>loses from <span class="highlight"></span>unicorns.
+            Rocks are hard but loved by some creatures. Unicorns for instance, they love to eat rocks. So <span
+              class="highlight"></span>rock always <span class="highlight"></span>loses from <span
+              class="highlight"></span>unicorns.
           </li>
         </ul>
       </li>
@@ -61,17 +65,35 @@
   </div> <!-- END of rules-->
   <section id="playfield">
     <h2>Pick your "weapon"</h2>
-    <div class="weapons">
-      <div class="weapons__item item--unicorns"><img src="./img/unicorn.png" alt=""></div>
-      <div class="weapons__item item--donut"><img src="./img/donut.png" alt=""></div>
-      <div class="weapons__item item--rock"><img src="./img/rock.png" alt=""></div>
+    <div class="playing-area">
+      <div class="playing-area__scoreboard d-flex justify-content-center align-items-center mb-4 font-weight-bold">
+        <div class="scoreboard__item scoreboard__user">
+          <span class="username">Player 1</span> <br> <span class="userScore">x</span>
+        </div>
+        <div class="scoreboard__item scoreboard__semicolon mx-4">:</div>
+        <div class="scoreboard__item scoreboard__computer">
+            <span class="computer">Computer</span> <br> <span class="computerScore">x</span>
+        </div>
+      </div>
+      <div class="start-screen">
+        <div class="btn">START</div>
+      </div>
+      <div class="weapons">
+        <div class="weapons__item item--unicorns" data-weapon="unicorn"></div>
+        <div class="weapons__item item--donut" data-weapon="donut"></div>
+        <div class="weapons__item item--rock" data-weapon="rock"></div>
+      </div>
     </div>
+
   </section>
   <footer>
-      <a href="https://www.freepik.com/free-photos-vectors/cartoon">Cartoon vector created by freepik - www.freepik.com</a>
-      <a href="https://www.freepik.com/free-photos-vectors/food">Food vector created by stockgiu - www.freepik.com</a>
-      <a href="https://www.freepik.com/free-photos-vectors/icon">Icon vector created by 0melapics - www.freepik.com</a>
+    <a href="https://www.freepik.com/free-photos-vectors/cartoon">Cartoon vector created by freepik -
+      www.freepik.com</a>
+    <a href="https://www.freepik.com/free-photos-vectors/food">Food vector created by stockgiu - www.freepik.com</a>
+    <a href="https://www.freepik.com/free-photos-vectors/icon">Icon vector created by 0melapics - www.freepik.com</a>
   </footer>
+
+  <script src="./script/main.js"></script>
 </body>
 
 </html>

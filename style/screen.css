@@ -2,7 +2,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -16,9 +15,129 @@ body {
 h1,
 h2,
 h3 {
-  padding-top: .8rem;
+  margin: 1rem 0 .5rem;
 }
 
 li {
   list-style-type: none;
+}
+
+.playing-area {
+  position: relative;
+  padding-top: 1rem;
+}
+
+.playing-area .start-screen {
+  position: absolute;
+  display: flex;
+  top: 0;
+  height: 120%;
+  width: 100%;
+  background: rgba(59, 68, 80, 0.9);
+  z-index: 1;
+}
+
+.playing-area .start-screen .btn {
+  cursor: pointer;
+  margin: auto;
+  color: white;
+  background: #f04864;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px 10px #fff;
+}
+
+.playing-area .start-screen .btn:hover {
+  background: #fda8b6;
+  transform: scale(1.2);
+  font-weight: bold;
+}
+
+.weapons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.weapons__item {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  padding: 2rem;
+  margin: 0 1rem;
+  box-shadow: 10px 10px 15px -4px rgba(0, 0, 0, 0.58);
+}
+
+.item--unicorns {
+  background: url(../img/unicorn.png) center center/contain no-repeat;
+}
+
+.item--unicorns::before {
+  content: 'Unicorn';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 1.7rem;
+  background: #e0dd06;
+  box-shadow: 10px 10px 7px 0px rgba(0, 0, 0, 0.75);
+}
+
+.item--donut {
+  background: url(../img/donut.png) center center/contain no-repeat;
+}
+
+.item--donut::before {
+  content: 'Donut';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 1.7rem;
+  background: #e0dd06;
+  box-shadow: 10px 10px 7px 0px rgba(0, 0, 0, 0.75);
+}
+
+.item--rock {
+  background: url(../img/rock.png) center center/contain no-repeat;
+}
+
+.item--rock::before {
+  content: 'Rock';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 1.7rem;
+  background: #e0dd06;
+  box-shadow: 10px 10px 7px 0px rgba(0, 0, 0, 0.75);
+}
+
+footer {
+  margin-top: 4rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+a {
+  display: block;
+  font-size: .8rem;
+  color: lightgray;
+}
+
+a:hover {
+  color: #c4c2c2;
+}
+
+.hide {
+  visibility: hidden;
 }
